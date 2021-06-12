@@ -91,36 +91,36 @@
  */
 /* Check that LIBRARY_LOG_LEVEL is defined and has a valid value. */
 #if !defined( LIBRARY_LOG_LEVEL ) ||       \
-    ( ( LIBRARY_LOG_LEVEL != LOG_NONE ) && \
-    ( LIBRARY_LOG_LEVEL != LOG_ERROR ) &&  \
-    ( LIBRARY_LOG_LEVEL != LOG_WARN ) &&   \
-    ( LIBRARY_LOG_LEVEL != LOG_INFO ) &&   \
-    ( LIBRARY_LOG_LEVEL != LOG_DEBUG )     \
+    ( ( LIBRARY_LOG_LEVEL != AWS_LOG_NONE ) && \
+    ( LIBRARY_LOG_LEVEL != AWS_LOG_ERROR ) &&  \
+    ( LIBRARY_LOG_LEVEL != AWS_LOG_WARN ) &&   \
+    ( LIBRARY_LOG_LEVEL != AWS_LOG_INFO ) &&   \
+    ( LIBRARY_LOG_LEVEL != AWS_LOG_DEBUG )     \
     )
     #error "Please define LIBRARY_LOG_LEVEL as either LOG_NONE, LOG_ERROR, LOG_WARN, LOG_INFO, or LOG_DEBUG."
 #else
-    #if LIBRARY_LOG_LEVEL == LOG_DEBUG
+    #if LIBRARY_LOG_LEVEL == AWS_LOG_DEBUG
         /* All log level messages will logged. */
         #define LogError( message )    SdkLog( ( "[ERROR] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
         #define LogWarn( message )     SdkLog( ( "[WARN] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
         #define LogInfo( message )     SdkLog( ( "[INFO] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
         #define LogDebug( message )    SdkLog( ( "[DEBUG] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
 
-    #elif LIBRARY_LOG_LEVEL == LOG_INFO
+    #elif LIBRARY_LOG_LEVEL == AWS_LOG_INFO
         /* Only INFO, WARNING and ERROR messages will be logged. */
         #define LogError( message )    SdkLog( ( "[ERROR] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
         #define LogWarn( message )     SdkLog( ( "[WARN] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
         #define LogInfo( message )     SdkLog( ( "[INFO] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
         #define LogDebug( message )
 
-    #elif LIBRARY_LOG_LEVEL == LOG_WARN
+    #elif LIBRARY_LOG_LEVEL == AWS_LOG_WARN
         /* Only WARNING and ERROR messages will be logged.*/
         #define LogError( message )    SdkLog( ( "[ERROR] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
         #define LogWarn( message )     SdkLog( ( "[WARN] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
         #define LogInfo( message )
         #define LogDebug( message )
 
-    #elif LIBRARY_LOG_LEVEL == LOG_ERROR
+    #elif LIBRARY_LOG_LEVEL == AWS_LOG_ERROR
         /* Only ERROR messages will be logged. */
         #define LogError( message )    SdkLog( ( "[ERROR] "LOG_METADATA_FORMAT, LOG_METADATA_ARGS ) ); SdkLog( message ); SdkLog( ( "\r\n" ) )
         #define LogWarn( message )

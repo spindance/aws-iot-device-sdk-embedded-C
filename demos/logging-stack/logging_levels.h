@@ -34,7 +34,7 @@
  * When @ref LIBRARY_LOG_LEVEL is #LOG_NONE, logging is disabled and no
  * logging messages are printed.
  */
-#define LOG_NONE     0
+#define AWS_LOG_NONE     0
 
 /**
  * @brief Represents erroneous application state or event.
@@ -45,7 +45,7 @@
  * These messages are printed when @ref LIBRARY_LOG_LEVEL is defined as either
  * of #LOG_ERROR, #LOG_WARN, #LOG_INFO or #LOG_DEBUG.
  */
-#define LOG_ERROR    1
+#define AWS_LOG_ERROR    1
 
 /**
  * @brief Message about an abnormal event.
@@ -57,7 +57,7 @@
  * These messages are printed when @ref LIBRARY_LOG_LEVEL is defined as either
  * of #LOG_WARN, #LOG_INFO or #LOG_DEBUG.
  */
-#define LOG_WARN     2
+#define AWS_LOG_WARN     2
 
 /**
  * @brief A helpful, informational message.
@@ -68,7 +68,7 @@
  * These messages are printed when @ref LIBRARY_LOG_LEVEL is defined as either
  * of #LOG_INFO or #LOG_DEBUG.
  */
-#define LOG_INFO     3
+#define AWS_LOG_INFO     3
 
 /**
  * @brief Detailed and excessive debug information.
@@ -81,7 +81,7 @@
  * These messages are only printed when @ref LIBRARY_LOG_LEVEL is defined as
  * #LOG_DEBUG.
  */
-#define LOG_DEBUG    4
+#define AWS_LOG_DEBUG    4
 
 /* The macro definition for LIBRARY_LOG_LEVEL is for Doxygen
  * documentation only. This macro is typically defined in only the
@@ -99,7 +99,7 @@
  * - With level #LOG_ERROR, only messages at this level will print.
  */
 #ifdef DOXYGEN
-    #define LIBRARY_LOG_LEVEL    LOG_ERROR
+    #define LIBRARY_LOG_LEVEL    AWS_LOG_ERROR
 #endif
 
 #endif /* ifndef LOGGING_LEVELS_H_ */
